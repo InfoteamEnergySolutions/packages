@@ -14,12 +14,12 @@ PYTHON_VERSION:=$(PYTHON3_VERSION)
 PYTHON_VERSION_MICRO:=$(PYTHON3_VERSION_MICRO)
 
 PKG_NAME:=python3
-PKG_RELEASE:=4
+PKG_RELEASE:=2
 PKG_VERSION:=$(PYTHON_VERSION).$(PYTHON_VERSION_MICRO)
 
 PKG_SOURCE:=Python-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://www.python.org/ftp/python/$(PKG_VERSION)
-PKG_HASH:=5e2f5f554e3f8f7f0296f7e73d8600c4e9acbaee6b2555b83206edf5153870da
+PKG_HASH:=70953a9b5d6891d92e65d184c3512126a15814bee15e1eff2ddcce04334e9a99
 
 PKG_LICENSE:=PSF
 PKG_LICENSE_FILES:=LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
@@ -264,7 +264,7 @@ define Py3Package/python3/filespec
 endef
 
 HOST_LDFLAGS += \
-	$$$$(pkg-config --static --libs libcrypto libssl)
+	$$$$(pkg-config --static --libs libcrypto libssl) -Wl$(comma)-rpath=$(STAGING_DIR_HOSTPKG)/lib
 
 ifeq ($(HOST_OS),Linux)
 HOST_LDFLAGS += \

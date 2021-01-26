@@ -8,16 +8,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=unbound
-PKG_VERSION:=1.9.5
+PKG_VERSION:=1.10.1
 PKG_RELEASE:=1
-
-PKG_LICENSE:=BSD-3-Clause
-PKG_LICENSE_FILES:=LICENSE
-PKG_MAINTAINER:=Eric Luehrsen <ericluehrsen@gmail.com>
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://nlnetlabs.nl/downloads/unbound
-PKG_HASH:=8a8d400f697c61d73d109c250743a1b6b79848297848026d82b43e831045db57
+PKG_HASH:=b73677c21a71cf92f15cc8cfe76a3d875e40f65b6150081c39620b286582d536
+
+PKG_MAINTAINER:=Eric Luehrsen <ericluehrsen@gmail.com>
+PKG_LICENSE:=BSD-3-Clause
+PKG_LICENSE_FILES:=LICENSE
+PKG_CPE_ID:=cpe:/a:nlnetlabs:unbound
 
 PKG_BUILD_PARALLEL:=1
 PKG_FIXUP:=autoreconf
